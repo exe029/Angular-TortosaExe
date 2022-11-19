@@ -1,0 +1,33 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container{
+  display: grid;
+  background-color: aqua;
+  grid-template-areas: 'toolbar toolbar toolbar toolbar toolbar'
+  'navbar students students students students'
+ ;
+  column-gap: 20px;
+  row-gap: 20px;
+
+}
+
+
+.toolbar-container{
+  grid-area: toolbar;
+  background-color: brown;
+  padding: 10px;
+}
+.navbar-container{
+  grid-area: navbar;
+  background-color: brown;
+  padding: 10px;
+}
+.students-container{
+  grid-area: students;
+  background-color: brown;
+  padding: 10px;
+}
