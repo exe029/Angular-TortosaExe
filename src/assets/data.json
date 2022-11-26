@@ -1,0 +1,31 @@
+[
+  {
+    "fname": "exe",
+    "lname": "tortosa",
+    "curso": "angular",
+    "mail": "exe029@hotmail.com"
+  },
+
+  {
+    "fname": "lia",
+    "lname": "tortosa",
+
+    "curso": "react-js",
+    "mail": ""
+  },
+
+  {
+    "fname": "eva",
+    "lname": "tortosa",
+
+    "curso": "angular",
+    "mail": "eva@hotmail.com"
+  },
+
+  {
+    "fname": "juan",
+    "lname": "tortosa",
+    "curso": "JS",
+    "mail": ""
+  }
+]
