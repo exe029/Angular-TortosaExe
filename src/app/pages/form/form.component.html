@@ -1,0 +1,24 @@
+
+  <div class="form-container">
+    <h2>formulario</h2>
+    <form class="example-form" [formGroup]="form" (ngSubmit)="login()">
+      <mat-form-field class="example-full-width" >
+        <mat-label>Ingrese su email</mat-label>
+        <input matInput placeholder="example@hotmail.com" type="email" value="email" [formControl]="emailControl">
+        <mat-error *ngIf = "emailControl.errors?.['required']" >email invalido </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ingrese su contraseña</mat-label>
+        <input matInput placeholder="su contraseña no debe ser menor a 8 digitos" type="password" value="password" [formControl]="passwordControl">
+        <mat-error *ngIf = "passwordControl.errors?.['required']" >contraseña invalida </mat-error>
+      </mat-form-field>
+      <button [disabled]="form.invalid" mat-raised-button color="accent">Accent</button>
+    </form>
+
+
+
+  </div>
+
+
+
