@@ -1,0 +1,41 @@
+<mat-card class="form-container">
+
+    <mat-card-title>Añadir estudiante</mat-card-title>
+    <mat-card-subtitle>Ingresa los datos del nuevo estudiante</mat-card-subtitle>
+
+    <form class="add-student-form" [formGroup]="newStudentForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="fname" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input formControlName="lname" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Curso</mat-label>
+          <input formControlName="curso" matInput>
+      </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email"formControlName="email" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input type="password" formControlName="password2" matInput>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary">Cargar jugador</button>
+    </form>
+
+</mat-card>

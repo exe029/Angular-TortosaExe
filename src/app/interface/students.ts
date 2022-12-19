@@ -1,6 +1,7 @@
-export interface Students {
+export interface Student {
   fname:       string;
   lname:       string;
-  curso:       string;
-  mail:      string;
+  subject?:      string;
+  password?:   string;
+  email:       string;
 }

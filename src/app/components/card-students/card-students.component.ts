@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Students } from 'src/app/interface/students';
+import { Student } from 'src/app/interface/students';
 
 @Component({
   selector: 'app-card-students',
@@ -8,11 +8,11 @@ import { Students } from 'src/app/interface/students';
 })
 export class CardStudentsComponent implements OnInit {
 
-  @Input() student:Students={
+  @Input() student:Student={
     fname:'',
     lname:'',
-    curso:'',
-    mail:'',
+    subject:'',
+    email:'',
 
 
 

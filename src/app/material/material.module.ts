@@ -5,6 +5,9 @@ import { MatCardModule, MatIconModule } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -17,9 +20,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatTooltipModule,
     MatCardModule,
     MatButtonModule,
-    MatFormFieldModule
-
-
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatListModule,
 
   ]
 })
