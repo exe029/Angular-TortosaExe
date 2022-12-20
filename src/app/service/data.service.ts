@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Students } from '../interface/students';
+import { Student } from '../interface/students';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,8 @@ export class DataService {
   constructor( private httpClient:HttpClient) {}
 
     getStudents(){
-      return this.httpClient.get<Students[]>(this.url);
+      return this.httpClient.get<Student[]>(this.url);
     }
-
-
 
 
 

@@ -11,6 +11,14 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormNewStudentComponent } from './components/form-new-student/form-new-student.component';
 import { StudentsListComponent } from './components/students-list/students-list.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { StudentsDialogComponent } from './components/students-dialog/students-dialog.component';
+
 
 
 @NgModule({
@@ -21,7 +29,9 @@ import { StudentsListComponent } from './components/students-list/students-list.
     CardStudentsComponent,
     FormComponent,
     FormNewStudentComponent,
-    StudentsListComponent
+    StudentsListComponent,
+    StudentsDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -30,6 +40,11 @@ import { StudentsListComponent } from './components/students-list/students-list.
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
 
   ],
   providers: [],

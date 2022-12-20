@@ -1,34 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from 'src/app/interface/students';
-import { StorageService } from 'src/app/service/storage.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { FirebaseService } from '../../service/firebase.service';
+import { async } from '@firebase/util';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentsDialogComponent } from '../students-dialog/students-dialog.component';
+import { getFirestore } from '@angular/fire/firestore';
+import { compileNgModule } from '@angular/compiler';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
+import { collection } from 'firebase/firestore';
+import { DataService } from '../../service/data.service';
 
-const students = [{
-  fname: 'exe',
-  lname: 'tortosa',
-  subject: 'angular',
-  email: 'exe029@hotmail.com',
-},
-{
-  fname: 'lia',
-  lname: 'tortosa',
 
-  subject: 'react-js',
-  email: '',
-},
-{
-  fname: 'eva',
-  lname: 'tortosa',
-
-  subject: 'angular',
-  email: 'eva@hotmail.com',
-},
-{
-  fname: 'juan',
-  lname: 'tortosa',
-  subject: 'JS',
-  email: '',
-}];
 
 @Component({
   selector: 'app-students-list',
@@ -37,14 +20,44 @@ const students = [{
 })
 export class StudentsListComponent implements OnInit {
 
-  displayedColumns: string[] = ['fname', 'email', 'subject'];
-  dataSource = students;
+  displayedColumns: string[] = ['fname', 'email', 'subject', 'edit', 'delete'];
+  dataSource : any;
+  students : Student[]=[];
 
-  constructor(private storageService:StorageService) {}
+  constructor(private firebaseService:FirebaseService, private dialogService:MatDialog) {}
 
   ngOnInit(): void {
-
-    // this.dataSource = new MatTableDataSource<Student>(this.students);
+    this.getStudents()
 
   }
+
+  async getStudents () {
+    try {
+      const response = await this.firebaseService.getCollection("students");
+      const data = await this.getArrayFromCollection(response);
+      this.dataSource= data;
+      console.log(data)
+    } catch (error){
+      console.error(error)
+    }
+  }
+  getArrayFromCollection = (collection: any) => {
+    return collection.docs.map((doc: any) => {
+      return { ...doc.data(), id: doc.id };
+    });
+  };
+
+  addStudents() {
+    this.dialogService.open(StudentsDialogComponent)
+  }
+
+  async onDelete(elementid: string){
+    const response = await this.firebaseService.deleteStudent(elementid);
+     console.log(response)
+  }
+
+ onEdit(element: string){
+  this.dialogService.open(StudentsDialogComponent, {data: element})
+
+ }
 }
