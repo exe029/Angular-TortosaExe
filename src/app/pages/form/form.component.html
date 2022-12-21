@@ -8,7 +8,7 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Ingrese su contraseña</mat-label>
+        <mat-label>Ingrese su contraseña aqui</mat-label>
         <input matInput placeholder="su contraseña no debe ser menor a 8 digitos" type="password" value="password" [formControl]="passwordControl">
         <mat-error *ngIf = "passwordControl.errors?.['required']" >contraseña invalida </mat-error>
       </mat-form-field>
