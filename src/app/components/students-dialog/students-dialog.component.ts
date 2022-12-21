@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { DataService } from 'src/app/service/data.service';
 import { Student } from '../../interface/students';
-import { FormNewStudentComponent } from '../form-new-student/form-new-student.component';
+
 
 
 @Component({
@@ -15,8 +15,7 @@ export class StudentsDialogComponent implements OnInit {
   constructor( @Inject(MAT_DIALOG_DATA) public data: Element | null,) {
     console.log(data)
     // if (data){
-      // this..pachValue(data)
-    // }
+    //}
    }
 
   ngOnInit(): void {
