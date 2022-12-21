@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './shared/app-navbar/app-navbar.component';
 import { AppToolbarComponent } from './pages/app-toolbar/app-toolbar.component';
-import { CardStudentsComponent } from './components/card-students/card-students.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './pages/form/form.component';
@@ -26,7 +25,6 @@ import { StudentsDialogComponent } from './components/students-dialog/students-d
     AppComponent,
     AppToolbarComponent,
     AppNavbarComponent,
-    CardStudentsComponent,
     FormComponent,
     FormNewStudentComponent,
     StudentsListComponent,
