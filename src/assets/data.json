@@ -1,31 +1,29 @@
 [
   {
-    "fname": "exe",
-    "lname": "tortosa",
-    "curso": "angular",
-    "mail": "exe029@hotmail.com"
+    "nombre": "Angular",
+    "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con Angular.",
+    "precio": "$20.000",
+    "duracion": "10/01/2023 - 10/03/2023"
   },
 
   {
-    "fname": "lia",
-    "lname": "tortosa",
-
-    "curso": "react-js",
-    "mail": ""
+    "nombre": "JS",
+    "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con JS.",
+    "precio": "$20.000",
+    "duracion": "10/01/2023 - 10/03/2023"
   },
 
   {
-    "fname": "eva",
-    "lname": "tortosa",
-
-    "curso": "angular",
-    "mail": "eva@hotmail.com"
+    "nombre": "ReactJS",
+    "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con reactjs.",
+    "precio": "$20.000",
+    "duracion": "10/01/2023 - 10/03/2023"
   },
 
   {
-    "fname": "juan",
-    "lname": "tortosa",
-    "curso": "JS",
-    "mail": ""
+    "nombre": "Desarrollo de App",
+    "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con React Native.",
+    "precio": "$20.000",
+    "duracion": "10/01/2023 - 10/03/2023"
   }
 ]

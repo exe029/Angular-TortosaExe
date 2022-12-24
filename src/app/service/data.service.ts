@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Student } from '../interface/students';
+import { Cursos } from '../interface/cursos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  url = 'https://run.mocky.io/v3/b6318786-af58-4157-a296-09173ffb7131';
+  url = 'https://run.mocky.io/v3/a09679da-d397-4a67-b976-e6c2e23c5948';
 
   constructor( private httpClient:HttpClient) {}
 
-    getStudents(){
-      return this.httpClient.get<Student[]>(this.url);
+    getCursos(){
+      return this.httpClient.get<Cursos[]>(this.url);
     }
 
 

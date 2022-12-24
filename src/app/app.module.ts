@@ -18,6 +18,11 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { StudentsDialogComponent } from './components/students-dialog/students-dialog.component';
 
+import { CursosCardComponent } from './components/cursos-card/cursos-card.component';
+import { CursoslistComponent } from './pages/cursoslist/cursoslist.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
+
 
 
 @NgModule({
@@ -29,9 +34,13 @@ import { StudentsDialogComponent } from './components/students-dialog/students-d
     FormNewStudentComponent,
     StudentsListComponent,
     StudentsDialogComponent,
+    CursosCardComponent,
+    CursoslistComponent,
+    HomeComponent,
 
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
