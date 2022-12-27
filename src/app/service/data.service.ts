@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cursos } from '../interface/cursos';
+import { Curso } from '../interface/cursos';
+import { Observable, filter, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  url = 'https://run.mocky.io/v3/a09679da-d397-4a67-b976-e6c2e23c5948';
+  url = 'https://run.mocky.io/v3/7c2f71ff-4f24-4908-b126-d2a223d138b3';
 
   constructor( private httpClient:HttpClient) {}
 
     getCursos(){
-      return this.httpClient.get<Cursos[]>(this.url);
+      return this.httpClient.get<Curso[]>(this.url).pipe( map((subjects:Curso[])=> subjects.filter( el => el.active === true )));
     }
 
 

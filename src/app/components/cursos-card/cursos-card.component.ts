@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Cursos } from 'src/app/interface/cursos';
+import { Curso } from 'src/app/interface/cursos';
 
 @Component({
   selector: 'app-cursos-card',
@@ -7,12 +7,13 @@ import { Cursos } from 'src/app/interface/cursos';
   styleUrls: ['./cursos-card.component.scss']
 })
 export class CursosCardComponent implements OnInit {
-  @Input() cursos:Cursos={
+  @Input() curso:Curso={
+    id:0,
     nombre:'',
     descripcion:'',
-    precio: 0,
-    duracion: 0,
-
+    precio: '',
+    duracion: '',
+    active:false
   }
 
 

@@ -1,29 +1,42 @@
 [
   {
+    "id":1,
     "nombre": "Angular",
     "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con Angular.",
     "precio": "$20.000",
-    "duracion": "10/01/2023 - 10/03/2023"
+    "duracion": "10/01/2023 - 10/03/2023",
+    "active":true
   },
-
   {
+    "id":2,
     "nombre": "JS",
     "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con JS.",
     "precio": "$20.000",
-    "duracion": "10/01/2023 - 10/03/2023"
+    "duracion": "10/01/2023 - 10/03/2023",
+    "active":true
   },
-
   {
+    "id":3,
     "nombre": "ReactJS",
     "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con reactjs.",
     "precio": "$20.000",
-    "duracion": "10/01/2023 - 10/03/2023"
+    "duracion": "10/01/2023 - 10/03/2023",
+    "active":true
   },
-
   {
+    "id":4,
     "nombre": "Desarrollo de App",
     "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con React Native.",
     "precio": "$20.000",
-    "duracion": "10/01/2023 - 10/03/2023"
+    "duracion": "10/01/2023 - 10/03/2023",
+    "active":true
+  },
+{
+    "id":5,
+    "nombre": "Wordpress",
+    "descripcion": "Sobre el curso : Aprenderás a crear y mantener aplicaciones web en una sola página con React Native.",
+    "precio": "$20.000",
+    "duracion": "10/01/2023 - 10/03/2023",
+    "active":false
   }
 ]

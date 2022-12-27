@@ -1,6 +1,8 @@
-export interface Cursos{
-  nombre: string,
-  descripcion: string,
-  precio: number,
-  duracion: number
+export interface Curso {
+  id:          number;
+  nombre:      string;
+  descripcion: string;
+  precio:      string;
+  duracion:    string;
+  active:     boolean;
 }
