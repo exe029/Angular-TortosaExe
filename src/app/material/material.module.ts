@@ -26,8 +26,6 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatListModule,
     MatDialogModule,
-
-
   ]
 })
 export class MaterialModule { }

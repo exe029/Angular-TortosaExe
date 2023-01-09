@@ -1,11 +1,27 @@
 
 
-<div class="cursos-card__component">
+<!-- <div class="cursos-card__component">
   <article class="curso-nombre">{{curso.nombre}}</article>
   <article class="curso-descripcion">{{curso.descripcion}}</article>
   <article class="curso-duracion">{{curso.duracion}}</article>
   <article class="curso-precio">{{curso.precio}}</article>
 
+</div> -->
 
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Programacion</mat-card-subtitle>
+    <mat-card-title>{{curso.nombre}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{curso.descripcion}}</p>
+    <mat-card-subtitle>{{curso.duracion}}</mat-card-subtitle>
+    <mat-card-subtitle>{{curso.precio}}</mat-card-subtitle>
 
-</div>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Me Interesa</button>
+    <!-- <button mat-button>SHARE</button> -->
+  </mat-card-actions>
+</mat-card>

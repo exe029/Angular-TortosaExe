@@ -15,11 +15,16 @@ import {
 import { stringLength } from '@firebase/util';
 import { DataService } from './data.service';
 import { Student } from '../interface/students';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
+
+  // behavior subject patern
+  private updateDataSubject = new BehaviorSubject<any>(null);
+  updateData$: Observable<any> = this.updateDataSubject.asObservable();
 
   constructor(private firestore: Firestore) {}
 
@@ -40,6 +45,10 @@ export class FirebaseService {
      const collectdoc = doc(this.firestore, `students/${elementid}`);
      return deleteDoc(collectdoc);
 
+  }
+
+  updateData(){
+    this.updateDataSubject.next(true);
   }
 
 }

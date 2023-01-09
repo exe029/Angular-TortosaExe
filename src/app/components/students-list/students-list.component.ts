@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Student } from 'src/app/interface/students';
 import {MatTableDataSource} from '@angular/material/table';
 import { FirebaseService } from '../../service/firebase.service';
@@ -10,6 +10,7 @@ import { compileNgModule } from '@angular/compiler';
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { collection } from 'firebase/firestore';
 import { DataService } from '../../service/data.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -18,17 +19,18 @@ import { DataService } from '../../service/data.service';
   templateUrl: './students-list.component.html',
   styleUrls: ['./students-list.component.scss'],
 })
-export class StudentsListComponent implements OnInit {
+export class StudentsListComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['fname', 'email', 'subject', 'edit', 'delete'];
   dataSource : any;
   students : Student[]=[];
+  updateSubscription: Subscription;
 
   constructor(private firebaseService:FirebaseService, private dialogService:MatDialog) {}
 
   ngOnInit(): void {
-    this.getStudents()
-
+    this.getStudents();
+    this.updateSubscription = this.firebaseService.updateData$.subscribe( resp => this.getStudents() )
   }
 
   async getStudents () {
@@ -53,11 +55,15 @@ export class StudentsListComponent implements OnInit {
 
   async onDelete(elementid: string){
     const response = await this.firebaseService.deleteStudent(elementid);
+    this.firebaseService.updateData();
      console.log(response)
   }
 
  onEdit(element: string){
   this.dialogService.open(StudentsDialogComponent, {data: element})
+ }
 
+ ngOnDestroy(): void {
+    this.updateSubscription.unsubscribe();
  }
 }

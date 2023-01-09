@@ -44,6 +44,7 @@ export class FormNewStudentComponent implements OnInit {
     try {
       if (!this.newStudentForm.invalid) {
         const response = await this.firebaseService.createDoc('students', newStudent);
+        this.firebaseService.updateData();
         console.log(response);
       }
 

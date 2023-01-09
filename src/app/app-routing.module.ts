@@ -19,8 +19,11 @@ const routes: Routes= [
 {
   path:'cursos',
   component: CursoslistComponent,
-}
-
+},
+{
+  path:'**',
+  redirectTo:'',
+},
 
 
 

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AppNavbarComponent } from './shared/app-navbar/app-navbar.component';
 import { AppToolbarComponent } from './pages/app-toolbar/app-toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +21,8 @@ import { CursosCardComponent } from './components/cursos-card/cursos-card.compon
 import { CursoslistComponent } from './pages/cursoslist/cursoslist.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
+import { SharedModule } from './shared/shared.module';
+
 
 
 
@@ -29,7 +30,6 @@ import { HomeComponent } from './pages/home/home.component';
   declarations: [
     AppComponent,
     AppToolbarComponent,
-    AppNavbarComponent,
     FormComponent,
     FormNewStudentComponent,
     StudentsListComponent,
@@ -38,8 +38,10 @@ import { HomeComponent } from './pages/home/home.component';
     CursoslistComponent,
     HomeComponent,
 
+
   ],
   imports: [
+    SharedModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
