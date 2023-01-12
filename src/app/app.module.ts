@@ -56,6 +56,9 @@ import { SharedModule } from './shared/shared.module';
     provideStorage(() => getStorage()),
 
   ],
+  exports: [
+    FormComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
