@@ -1,28 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes , RouterModule} from '@angular/router';
-import { StudentsListComponent } from './components/students-list/students-list.component';
-import { CursoslistComponent } from './pages/cursoslist/cursoslist.component';
-import { HomeComponent } from './pages/home/home.component';
+import { StudentsListComponent } from './dashboard/components/students-list/students-list.component';
+import { PageNotfoundComponent } from './shared/page-notfound/page-notfound.component';
+
 
 
 
 const routes: Routes= [
   {
     path:'',
-    component:HomeComponent,
+    pathMatch: 'full',
+    redirectTo:'/dashboard',
 },
 {
-  path:'students',
-  component: StudentsListComponent,
+  path:'auth',
+  loadChildren: ()=> import('./auth/auth.module').then( (m)=> m.AuthModule )
 },
 {
-  path:'cursos',
-  component: CursoslistComponent,
+  path:'dashboard',
+  loadChildren: ()=> import('./dashboard/dashboard.module').then( (m)=> m.DashboardModule )
+},
+{
+  path:'404',
+  component:PageNotfoundComponent,
 },
 {
   path:'**',
-  redirectTo:'',
+  redirectTo:'404',
 },
 
 

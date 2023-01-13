@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { DataService } from 'src/app/service/data.service';
-import { Curso } from '../../interface/cursos';
+import { Curso } from '../../../interface/cursos';
 
 
 @Component({

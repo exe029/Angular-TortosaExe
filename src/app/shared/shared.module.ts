@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MaterialModule } from '../material/material.module';
-import { RouterLink } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
-import { FooterComponent } from './footer/footer.component';
+import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 
 
 @NgModule({
   declarations: [
-    AppNavbarComponent,
-    FooterComponent,
+    PageNotfoundComponent,
   ],
   imports: [
     CommonModule,
@@ -19,8 +16,6 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule
   ],
   exports: [
-    AppNavbarComponent,
-    FooterComponent
   ],
 })
 export class SharedModule { }

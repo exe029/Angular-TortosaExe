@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Student } from 'src/app/interface/students';
 import {MatTableDataSource} from '@angular/material/table';
-import { FirebaseService } from '../../service/firebase.service';
+import { FirebaseService } from '../../../service/firebase.service';
 import { async } from '@firebase/util';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsDialogComponent } from '../students-dialog/students-dialog.component';
@@ -9,7 +9,7 @@ import { getFirestore } from '@angular/fire/firestore';
 import { compileNgModule } from '@angular/compiler';
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { collection } from 'firebase/firestore';
-import { DataService } from '../../service/data.service';
+import { DataService } from '../../../service/data.service';
 import { Subscription } from 'rxjs';
 
 
