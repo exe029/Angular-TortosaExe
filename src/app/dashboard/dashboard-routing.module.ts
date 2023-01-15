@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes , RouterModule} from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CursosCardComponent } from './components/cursos-card/cursos-card.component';
-import { StudentsListComponent } from './components/students-list/students-list.component';
-import { CursoslistComponent } from './pages/cursoslist/cursoslist.component';
+import { HomeComponent } from './pages/home-page/home.component';
+import { CursoslistComponent } from './pages/cursoslist-page/cursoslist.component';
+import { DashHomeComponent } from './components/dash-home/dash-home.component';
+import { StudentsComponent } from './pages/students-page/students.component';
 
 const routes: Routes= [
     {
@@ -11,12 +11,16 @@ const routes: Routes= [
         component:HomeComponent,
         children:[
             {
+            path: '',
+            component:DashHomeComponent,
+            },
+            {
                 path: 'cursos',
                 component:CursoslistComponent,
             },
             {
                 path: 'students',
-                component:StudentsListComponent,
+                component:StudentsComponent,
             },
         ]
     }

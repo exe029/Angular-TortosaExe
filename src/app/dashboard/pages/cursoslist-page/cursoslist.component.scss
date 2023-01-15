@@ -1,13 +1,12 @@
 .cursos-list__component{
     display: grid;
     grid-template-rows: 100px 100px 100px 100px;
-    grid-template-columns: 300px 300px 300px 300px;
-    margin: 0px auto;
-    padding-top: 20px;
+    grid-template-columns: 250px 250px 250px 250px;
     gap: 10px;
     justify-content: center;
-
-
-
+    height: 88vh;
+    max-width: 1080px;
+    width: 1020px;
+    padding: 20px 0;
 
   }
