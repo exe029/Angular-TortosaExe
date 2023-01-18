@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { FormComponent } from './form.component';
+import { AppComponent } from '../../../app.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -8,6 +12,7 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule, HttpClientTestingModule],
       declarations: [ FormComponent ]
     })
     .compileComponents();
@@ -20,4 +25,9 @@ describe('FormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it ('formulario correcto', () => {
+  //   expect(component.form).toBe()
+  // })
+
 });

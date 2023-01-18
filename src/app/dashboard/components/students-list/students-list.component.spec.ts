@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FirestoreModule } from '@angular/fire/firestore';
 
 import { StudentsListComponent } from './students-list.component';
+import { FirebaseService } from '../../../service/firebase.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('StudentsListComponent', () => {
   let component: StudentsListComponent;
@@ -8,7 +11,9 @@ describe('StudentsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudentsListComponent ]
+      imports: [],
+      declarations: [ StudentsListComponent ],
+      providers: [FirebaseService,]
     })
     .compileComponents();
 

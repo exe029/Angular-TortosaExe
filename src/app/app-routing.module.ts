@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes , RouterModule} from '@angular/router';
-import { StudentsListComponent } from './dashboard/components/students-list/students-list.component';
 import { PageNotfoundComponent } from './shared/page-notfound/page-notfound.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 
 
@@ -11,15 +11,16 @@ const routes: Routes= [
   {
     path:'',
     pathMatch: 'full',
-    redirectTo:'/dashboard',
+    redirectTo:'/auth',
 },
 {
   path:'auth',
-  loadChildren: ()=> import('./auth/auth.module').then( (m)=> m.AuthModule )
+  loadChildren: ()=> import('./auth/auth.module').then( m=> m.AuthModule )
 },
 {
   path:'dashboard',
-  loadChildren: ()=> import('./dashboard/dashboard.module').then( (m)=> m.DashboardModule )
+  loadChildren: ()=> import('./dashboard/dashboard.module').then( m=> m.DashboardModule ),
+  canLoad:[AuthGuard]
 },
 {
   path:'404',

@@ -12,9 +12,9 @@ import {
   UpdateData,
   collectionSnapshots,
 } from '@angular/fire/firestore';
-import { stringLength } from '@firebase/util';
-import { DataService } from './data.service';
-import { Student } from '../interface/students';
+// import { stringLength } from '@firebase/util';
+// import { DataService } from './data.service';
+// import { Student } from '../interface/students';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

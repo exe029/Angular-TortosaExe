@@ -21,7 +21,8 @@ export const environment = {
     appId: "1:1067503115606:web:3cd0380f03d306bed1caf7",
     measurementId: "G-0LJGLMMZ6F"
   },
-  production: false
+  production: false,
+  authApi: 'https://fake-login-api-production.up.railway.app/api/auth/login'
 };
 
 /*

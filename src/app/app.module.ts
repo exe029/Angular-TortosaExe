@@ -14,8 +14,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+
+
 
 
 
@@ -28,8 +28,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
   ],
   imports: [
     SharedModule,
-    AuthModule,
-    DashboardModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
