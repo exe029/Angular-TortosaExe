@@ -8,5 +8,7 @@ export const environment = {
     messagingSenderId: '1067503115606',
     measurementId: 'G-1LW9E5G8GZ',
   },
-  production: true
+  production: true,
+  authApi: 'https://fake-login-api-production.up.railway.app/api/auth/login',
+
 };

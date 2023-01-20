@@ -1,4 +1,6 @@
 .dash-container{
+  display: grid;
+  place-items: center;
   height: 88vh;
   max-width: 1080px;
   width: 1020px;
