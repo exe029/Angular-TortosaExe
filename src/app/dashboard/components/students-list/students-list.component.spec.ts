@@ -3,7 +3,7 @@ import { FirestoreModule } from '@angular/fire/firestore';
 
 import { StudentsListComponent } from './students-list.component';
 import { FirebaseService } from '../../../service/firebase.service';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 
 describe('StudentsListComponent', () => {
   let component: StudentsListComponent;

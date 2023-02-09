@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/service/firebase.service';
+import { Observable } from 'rxjs';
+import { Student } from 'src/app/interface/students';
 
 @Component({
   selector: 'app-form-new-student',
@@ -9,6 +11,9 @@ import { FirebaseService } from 'src/app/service/firebase.service';
   styleUrls: ['./form-new-student.component.scss'],
 })
 export class FormNewStudentComponent implements OnInit {
+
+  students$: Observable<Student[]>;
+
   newStudentForm: FormGroup = this.formBuilder.group({
     fname: ['', [Validators.required]],
     lname: ['', [Validators.required]],

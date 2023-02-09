@@ -11,12 +11,11 @@
 
 .example-full-width {
   width: 100%;
-
+  height: 100px;
 }
 
 .form-container{
    background-color: rgba(240, 248, 255, 0.849);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,3 +37,9 @@
 }
 
 
+
+.input{
+  border: 1px solid rgb(28, 25, 189);
+  border-start-end-radius: 10px;
+  padding-top: 1px;
+}

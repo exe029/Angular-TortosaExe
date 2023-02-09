@@ -14,7 +14,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-
+import { StoreModule } from '@ngrx/store';
+import { StudentsReducer } from './app-state/reducers/students.reducers'
 
 
 
@@ -40,6 +41,7 @@ import { SharedModule } from './shared/shared.module';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    StoreModule.forRoot({students: StudentsReducer}),
 
   ],
   exports: [

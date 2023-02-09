@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Student } from 'src/app/interface/students';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 import { FirebaseService } from '../../../service/firebase.service';
 import { async } from '@firebase/util';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { StudentsDialogComponent } from '../students-dialog/students-dialog.component';
 import { getFirestore } from '@angular/fire/firestore';
 import { compileNgModule } from '@angular/compiler';
