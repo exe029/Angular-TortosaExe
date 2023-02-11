@@ -1,9 +1,9 @@
-<h1>Cursos</h1>
-<section class="cursos-list__component">
-  <app-cursos-card *ngFor="let curso of arrayCursos$ | async" [curso]="curso"></app-cursos-card>
+<section>
 
+  <h1>Cursos</h1>
 
-
-
+  <div class="cursos-list__component">
+    <app-cursos-card *ngFor="let curso of arrayCursos$ | async" [curso]="curso"></app-cursos-card>
+  </div>
 
 </section>
