@@ -1,18 +1,21 @@
 <nav class="navbar-container">
   <ul>
-    <li routerLink="/dashboard">
+    <li class="li-container" routerLink="/dashboard">
       <mat-icon> home</mat-icon>
       Inicio
     </li>
 
-    <li routerLink="/dashboard/cursos">
+    <li class="li-container" routerLink="/dashboard/cursos">
       <mat-icon> library_books</mat-icon>
       Cursos
     </li>
 
-    <li routerLink="/dashboard/students">
+    <li class="li-container" routerLink="/dashboard/students">
       <mat-icon> groups</mat-icon>
       Estudiantes
+    </li>
+    <li class="li-button">
+      <button (click)="logout()" mat-raised-button color="warn"> <mat-icon> logout</mat-icon> Logout </button>
     </li>
   </ul>
 </nav>

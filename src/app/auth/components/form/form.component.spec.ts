@@ -26,8 +26,5 @@ describe('FormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it ('formulario correcto', () => {
-  //   expect(component.form).toBe()
-  // })
 
 });

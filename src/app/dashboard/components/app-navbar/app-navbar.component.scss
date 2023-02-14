@@ -1,12 +1,12 @@
-li{
-  margin: 5px;
+.li-container{
+  margin: 4px;
   padding: 20px 0;
   text-align: center;
   font-size: large;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   color: #c7c7c7;
 	border-left: 1px solid transparent;
   border-radius: 30px 15px;
@@ -16,22 +16,29 @@ ul{
 }
 
 .navbar-container{
-  //position: absolute;
   height: 88vh;
   background-color: #4c52631c;
-  //background:  #2e2e46;
-  // margin-right: 500px;
   padding-top: 40px;
-  // min-height: calc(100vh - 864px);
   width: 200px;
   border-right: 0.1px solid rgba(255, 255, 255, 0.158);
 }
 
-li:hover{
+.li-container:hover{
   cursor: pointer;
   border-left: 3px solid #c2c2d8c9;
   border-right: 3px solid #c2c2d8c9;
   background-color: #4c52631c;
   transition: all 500ms ease;
   transform: scale(1.1);
+}
+
+.li-button{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.li-button:hover{
+  cursor: pointer;
+  transition: all 700ms ease;
+  transform: scale(1.05);
 }

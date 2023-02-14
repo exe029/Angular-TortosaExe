@@ -12,9 +12,7 @@ import {
   UpdateData,
   collectionSnapshots,
 } from '@angular/fire/firestore';
-// import { stringLength } from '@firebase/util';
-// import { DataService } from './data.service';
-// import { Student } from '../interface/students';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -22,7 +20,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class FirebaseService {
 
-  // behavior subject patern
   private updateDataSubject = new BehaviorSubject<any>(null);
   updateData$: Observable<any> = this.updateDataSubject.asObservable();
 
@@ -39,8 +36,6 @@ export class FirebaseService {
   }
 
   deleteStudent(elementid: string){
-    // const tutorialsRef = db.collection('tutorials');
-    // tutorialsRef.doc('id').delete();
 
      const collectdoc = doc(this.firestore, `students/${elementid}`);
      return deleteDoc(collectdoc);

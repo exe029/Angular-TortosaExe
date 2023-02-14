@@ -1,6 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MatLegacyDialog as MatDialog, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef} from '@angular/material/legacy-dialog';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Student } from 'src/app/interface/students';
 
+export interface DialogData {
+  student: Student;
+  type: string;
+}
 @Component({
   selector: 'app-students-dialog',
   templateUrl: './students-dialog.component.html',
@@ -8,11 +13,12 @@ import {MatLegacyDialog as MatDialog, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,
 })
 export class StudentsDialogComponent implements OnInit {
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data: Element | null,) {
+  constructor( @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     console.log(data)
    }
 
   ngOnInit(): void {
+
   }
 
 }

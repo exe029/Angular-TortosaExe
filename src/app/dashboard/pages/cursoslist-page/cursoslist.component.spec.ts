@@ -1,8 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CursoslistComponent } from './cursoslist.component';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule} from '@angular/common/http/testing';
 import { DataService } from 'src/app/service/data.service';
 import { Curso } from '../../../interface/cursos';
 

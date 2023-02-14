@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../../service/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/app-state/entity/user.entity';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { login } from 'src/app/app-state/actions/login.actions';
 
 
 
@@ -13,7 +16,7 @@ import { Router } from '@angular/router';
 
 })
 export class FormComponent implements  OnInit {
-
+  user$: Observable<User>;
 
   emailControl = new FormControl ('', [Validators.email, Validators.required])
   passwordControl = new FormControl ('',[Validators.minLength(6),Validators.required])
@@ -26,9 +29,12 @@ export class FormComponent implements  OnInit {
 
 
 
-  constructor( private authService: AuthService, private router: Router ) { }
+  constructor( private authService: AuthService, private router: Router, private store:Store<{ user: User}> ) {
+    this.user$ = store.select('user');
+  }
 
   login() {
+    console.log(this.user$);
     console.log(this.form.value);
     const data = {
       email: this.form.value.email,
@@ -38,6 +44,7 @@ export class FormComponent implements  OnInit {
       console.log(resp);
       this.authService.setUser(resp.user);
       if( resp.ok ){
+        this.store.dispatch(login({user:resp.user}))
         this.router.navigate(['/dashboard'])
       }
     })

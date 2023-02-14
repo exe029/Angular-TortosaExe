@@ -1,16 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Student } from 'src/app/interface/students';
-import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 import { FirebaseService } from '../../../service/firebase.service';
-import { async } from '@firebase/util';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import {  MatDialog } from '@angular/material/dialog';
 import { StudentsDialogComponent } from '../students-dialog/students-dialog.component';
-import { getFirestore } from '@angular/fire/firestore';
-import { compileNgModule } from '@angular/compiler';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
-import { collection } from 'firebase/firestore';
-import { DataService } from '../../../service/data.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { addStudent } from 'src/app/app-state/actions/students.actions';
 
 
 
@@ -21,14 +16,20 @@ import { Subscription } from 'rxjs';
 })
 export class StudentsListComponent implements OnInit, OnDestroy {
 
+  students$:Observable<Student[]>
   displayedColumns: string[] = ['fname', 'email', 'subject', 'edit', 'delete'];
   dataSource : any;
-  students : Student[]=[];
+  // students : Student[]=[];
   updateSubscription: Subscription;
 
-  constructor(private firebaseService:FirebaseService, private dialogService:MatDialog) {}
+  constructor(private firebaseService:FirebaseService, private dialogService:MatDialog, private store:Store<{students: Student[]}>) {
+    this.students$ = this.store.select('students');
+
+  }
 
   ngOnInit(): void {
+
+    console.log(this.students$)
     this.getStudents();
     this.updateSubscription = this.firebaseService.updateData$.subscribe( resp => this.getStudents() )
   }
@@ -38,7 +39,8 @@ export class StudentsListComponent implements OnInit, OnDestroy {
       const response = await this.firebaseService.getCollection("students");
       const data = await this.getArrayFromCollection(response);
       this.dataSource= data;
-      console.log(data)
+      const result = this.store.dispatch(addStudent({student:data[0]}))
+      console.log(data, result)
     } catch (error){
       console.error(error)
     }
@@ -60,7 +62,7 @@ export class StudentsListComponent implements OnInit, OnDestroy {
   }
 
  onEdit(element: string){
-  this.dialogService.open(StudentsDialogComponent, {data: element})
+  this.dialogService.open(StudentsDialogComponent, {data: {data:element, type:'edit'}})
  }
 
  ngOnDestroy(): void {

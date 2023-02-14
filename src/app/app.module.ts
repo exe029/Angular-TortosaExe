@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -17,17 +16,17 @@ import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { StudentsReducer } from './app-state/reducers/students.reducers'
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    StoreModule.forRoot({students: StudentsReducer}),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     SharedModule,
     AppRoutingModule,
     BrowserModule,
@@ -36,13 +35,6 @@ import { StudentsReducer } from './app-state/reducers/students.reducers'
     FormsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    StoreModule.forRoot({students: StudentsReducer}),
-
   ],
   exports: [
 

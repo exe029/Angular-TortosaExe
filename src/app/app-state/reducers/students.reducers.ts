@@ -13,8 +13,9 @@ export const initialState:InitialStateApp = {
 export const StudentsReducer = createReducer(
   initialState,
   on(addStudent, (state, payload)  => { // esta funcion si o si tiene que retornar el state
-    state.students.push(payload.student);
-    return state;
+    console.log(payload.student,state.students);
+
+    return {...state,students:[...state.students,payload.student]  };
   })
 
 );
