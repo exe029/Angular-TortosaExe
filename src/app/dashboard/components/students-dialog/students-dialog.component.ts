@@ -3,7 +3,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog
 import { Student } from 'src/app/interface/students';
 
 export interface DialogData {
-  student: Student;
+  data: Student;
   type: string;
 }
 @Component({
@@ -14,7 +14,6 @@ export interface DialogData {
 export class StudentsDialogComponent implements OnInit {
 
   constructor( @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    console.log(data)
    }
 
   ngOnInit(): void {

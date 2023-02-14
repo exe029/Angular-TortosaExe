@@ -12,14 +12,14 @@ import { DialogData } from '../students-dialog/students-dialog.component';
 })
 export class FormNewStudentComponent implements OnInit, AfterViewInit {
   @Input() data:DialogData = {
-    student:{
+    data:{
       email:'',
       fname:'',
       lname:'',
       subject:'',
       password:''
     },
-    type:'create'
+    type:'create',
   };
   students$: Observable<Student[]>;
 
@@ -44,19 +44,14 @@ export class FormNewStudentComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-
-    console.log(this.data)
     if(this.data.type === 'edit'){
-      console.log(this.data, 'here')
-      // this.newStudentForm.get('fname')?.setValue(this.data.student.fname);
-      // this.newStudentForm.value.fname.setValue(this.data.student.fname)
-      // this.newStudentForm.get('lname')?.setValue(this.data.student.lname);
-      // this.newStudentForm.get('email')?.setValue(this.data.student.email);
-      // this.newStudentForm.get('subject')?.setValue(this.data.student.subject);
-      // this.newStudentForm.get('password')?.setValue(this.data.student.password);
-      // this.newStudentForm.get('password2')?.setValue(this.data.student.password);
+      this.newStudentForm.get('fname')!.setValue(this.data.data.fname);
+      this.newStudentForm.get('lname')!.setValue(this.data.data.lname);
+      this.newStudentForm.get('email')!.setValue(this.data.data.email);
+      this.newStudentForm.get('subject')!.setValue(this.data.data.subject);
+      this.newStudentForm.get('password')!.setValue(this.data.data.password);
+      this.newStudentForm.get('password2')!.setValue(this.data.data.password);
     }
-
   }
 
   ngAfterViewInit(): void {
@@ -74,13 +69,15 @@ export class FormNewStudentComponent implements OnInit, AfterViewInit {
 
     try {
       if (!this.newStudentForm.invalid) {
-        const response = await this.firebaseService.createDoc('students', newStudent);
+        const response = this.data.type === 'create'
+          ? await this.firebaseService.createDoc('students', newStudent)
+          : await this.firebaseService.setDocument('students',this.data.data.id!,newStudent)
         this.firebaseService.updateData();
-        console.log(response);
+
       }
 
     } catch (error) {
-      console.error(error);
+
     }
   }
 }

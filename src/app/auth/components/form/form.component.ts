@@ -34,14 +34,11 @@ export class FormComponent implements  OnInit {
   }
 
   login() {
-    console.log(this.user$);
-    console.log(this.form.value);
     const data = {
       email: this.form.value.email,
       password: this.form.value.password,
     }
     this.authService.login(data).subscribe( resp => {
-      console.log(resp);
       this.authService.setUser(resp.user);
       if( resp.ok ){
         this.store.dispatch(login({user:resp.user}))

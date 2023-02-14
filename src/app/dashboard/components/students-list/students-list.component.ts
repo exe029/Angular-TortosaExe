@@ -19,7 +19,6 @@ export class StudentsListComponent implements OnInit, OnDestroy {
   students$:Observable<Student[]>
   displayedColumns: string[] = ['fname', 'email', 'subject', 'edit', 'delete'];
   dataSource : any;
-  // students : Student[]=[];
   updateSubscription: Subscription;
 
   constructor(private firebaseService:FirebaseService, private dialogService:MatDialog, private store:Store<{students: Student[]}>) {
@@ -28,8 +27,6 @@ export class StudentsListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
-    console.log(this.students$)
     this.getStudents();
     this.updateSubscription = this.firebaseService.updateData$.subscribe( resp => this.getStudents() )
   }
@@ -40,9 +37,8 @@ export class StudentsListComponent implements OnInit, OnDestroy {
       const data = await this.getArrayFromCollection(response);
       this.dataSource= data;
       const result = this.store.dispatch(addStudent({student:data[0]}))
-      console.log(data, result)
     } catch (error){
-      console.error(error)
+
     }
   }
   getArrayFromCollection = (collection: any) => {
@@ -52,13 +48,13 @@ export class StudentsListComponent implements OnInit, OnDestroy {
   };
 
   addStudents() {
-    this.dialogService.open(StudentsDialogComponent)
+    this.dialogService.open(StudentsDialogComponent, {data: {data:{}, type:'create'}})
   }
 
   async onDelete(elementid: string){
     const response = await this.firebaseService.deleteStudent(elementid);
     this.firebaseService.updateData();
-     console.log(response)
+
   }
 
  onEdit(element: string){

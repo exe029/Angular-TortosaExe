@@ -1,4 +1,5 @@
 # AngularTortosaExe
+luego de clonar el repositorio ejecutar el comando "npm install" , para instalacion de las dependencias.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 

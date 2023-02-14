@@ -14,7 +14,6 @@ export const initialState:InitialStateApp = {
 export const StudentsReducer = createReducer(
   initialState,
   on(login, (state, payload)  => { // esta funcion si o si tiene que retornar el state
-    console.log(state, payload)
 
     return {user:payload.user };
   })

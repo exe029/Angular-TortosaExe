@@ -10,6 +10,8 @@ import {
   doc,
   deleteDoc,
   UpdateData,
+  setDoc,
+  getDoc,
   collectionSnapshots,
 } from '@angular/fire/firestore';
 
@@ -31,15 +33,22 @@ export class FirebaseService {
   }
 
   getCollection(nameCollec:string){
+
     const collec = collection(this.firestore, nameCollec);
     return getDocs(collec)
   }
 
-  deleteStudent(elementid: string){
+  async setDocument(nameCollec:string, id:string,data:any){
+    // const docRef = doc(this.firestore,`students/${id}`);
+    // const docS
+    const updateDoc = await setDoc(doc(this.firestore,`${nameCollec}/${id}`),data);
+    return updateDoc;
 
+  }
+
+  deleteStudent(elementid: string){
      const collectdoc = doc(this.firestore, `students/${elementid}`);
      return deleteDoc(collectdoc);
-
   }
 
   updateData(){
